@@ -37,6 +37,7 @@ WHERE table_name = 'customer_orders';
 - ' to specify the regex
 - '' repalce anything with blank
 - 'g' means global match and removes all matches
+- Use NULLIF to handle blank string '' in conjuction with REGEXP_REPLACE
 
 ![image](https://user-images.githubusercontent.com/74512335/132511293-460dc702-4f75-4f8f-bc7b-60eeba92d872.png)
 
