@@ -23,3 +23,10 @@ WHERE table_name = 'customer_orders';
 - It is vital to check and know what data types are in the database columns. 
 - Data types maybe listed incorrectly which will cause issues later on and will prevent a proper analysis on the data.
 - **This is to be considered the first step prior to any data cleaning.**
+
+## Changing one data type to another
+- CAST changes one data type to another 
+- :: is just a shortcut for cast
+- instead of CAST(timestamp as string) do timestamp::string
+- It's much more readable and preferred compared to using cast
+- Stack Overflow link - https://discordapp.com/channels/873717142888022047/873731632664817664/884895199749353493
