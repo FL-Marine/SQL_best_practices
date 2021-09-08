@@ -41,4 +41,7 @@ WHERE table_name = 'customer_orders';
 ![image](https://user-images.githubusercontent.com/74512335/132511293-460dc702-4f75-4f8f-bc7b-60eeba92d872.png)
 
 **Regular Expressions Cheat Sheet** -https://cheatography.com/davechild/cheat-sheets/regular-expressions/
+
 **PostgreSQL REGEXP_REPLACE Function** - https://www.postgresqltutorial.com/regexp_replace/
+
+**How to use regular expressions (RegEx) in SQL Server to generate randomized test data** - https://solutioncenter.apexsql.com/using-regular-expressions-regex-in-sql-server-to-generate-randomized-test-data/
