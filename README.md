@@ -29,4 +29,16 @@ WHERE table_name = 'customer_orders';
 - :: is just a shortcut for cast
 - instead of CAST(timestamp as string) do timestamp::string
 - It's much more readable and preferred compared to using cast
-- Stack Overflow link - https://discordapp.com/channels/873717142888022047/873731632664817664/884895199749353493
+
+**Stack Overflow link** - https://discordapp.com/channels/873717142888022047/873731632664817664/884895199749353493
+
+## REGEXP_REPLACE
+- REGEXP_REPLACE(source, pattern, replacement_string,[, flags])  
+- ' to specify the regex
+- '' repalce anything with blank
+- 'g' means global match and removes all matches
+
+![image](https://user-images.githubusercontent.com/74512335/132511293-460dc702-4f75-4f8f-bc7b-60eeba92d872.png)
+
+**Regular Expressions Cheat Sheet** -https://cheatography.com/davechild/cheat-sheets/regular-expressions/
+**PostgreSQL REGEXP_REPLACE Function** - https://www.postgresqltutorial.com/regexp_replace/
