@@ -52,3 +52,39 @@ WHERE table_name = 'customer_orders';
 - The DENSE_RANK function is similar to RANK function however the DENSE_RANK function does not skip any ranks if there is a tie between the ranks of the preceding records. 
 - Unlike the RANK and DENSE_RANK functions, the ROW_NUMBER function simply returns the row number of the sorted records starting with 1.
 https://codingsight.com/similarities-and-differences-among-rank-dense_rank-and-row_number-functions/
+
+# SQL Bits & Bytes- Best practices for efficient querying
+ 
+⭐ Start EDA with describing the dataset i.e., DESCRIBE, to show table structure
+
+⭐ Preferably select individual fields instead of selecting all fields with *
+
+⭐ If using select *, please use LIMIT /TOP to restrict the result set (especially useful if the dataset size is large)
+
+⭐ Even if selecting individual columns, use of TOP/LIMIT is helpful for better performance
+
+⭐ Know SQL logical order of operations i.e. 1) FROM 2)WHERE 3)GROUP BY 4)HAVING 5)SELECT 6)ORDER BY 7)LIMIT
+
+⭐ Make use of column aliases when using the feature engineering concept
+
+⭐ Make use of table aliases when querying multiple tables
+
+⭐ Join tables using the ON keyword (ANSI-Standard) instead of WHERE clause
+
+⭐ Filter with WHERE (as applicable) before HAVING
+
+⭐ Use EXISTS/NOT EXISTS instead of IN/NOT IN
+
+⭐ WHERE/HAVING/GROUP BY cannot have column aliases (due to logical order of operations)
+
+⭐ Organize your query with CTE
+
+⭐ Window functions are very helpful in finding moving averages, identifying duplicate rows, finding ranking etc.
+
+⭐ Indent and comment your code for easy readability
+
+⭐ GROUP BY and ORDER BY both allow column numbers, however use of column names is recommended for easy readability/scalability
+
+⭐ Data Analysis is 99% querying, meaning you will use only SELECT statement. However, it’s good to have knowledge of DML/ TCL / DDL concepts.
+ 
+ Pooja Chavan post https://www.linkedin.com/posts/thepoojachavan_dataanalysis-sql-dataanalytics-activity-6842097607553236992-UwBV
