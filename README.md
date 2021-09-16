@@ -88,3 +88,85 @@ https://codingsight.com/similarities-and-differences-among-rank-dense_rank-and-r
 ⭐ Data Analysis is 99% querying, meaning you will use only SELECT statement. However, it’s good to have knowledge of DML/ TCL / DDL concepts.
  
  Pooja Chavan post https://www.linkedin.com/posts/thepoojachavan_dataanalysis-sql-dataanalytics-activity-6842097607553236992-UwBV
+ 
+# Use temp tables for complex SQL queries.
+There are three advantages:
+1. intermediate steps which show the evolution of the data.
+2. Allows easy debugging and QA'ing of steps, since its broken into small chunks.
+3. Optimizes large queries, and decreases run times.
+
+In a complex query with multiple sub-queries, it can be hard to know the output.
+
+And if your query involves operations like UNION and INTERSECT, it will make it complex and slow very quickly.
+
+It is not a sign of skill to create a single massive unreadable query with multiple sub queries. It just causes data governance and data quality issues in the long run, and makes reporting difficult.
+
+So, break down complex queries and create multiple temporary tables. Then join them together gradually as you go along.
+
+It'll make your life easier.
+
+Matthew Blasa post - https://www.linkedin.com/posts/mblasa_sql-datascience-data-activity-6844030095506620416-8hDY
+
+**Danny Ma on temp tables**
+- Use temp tables only when you need to re-index or re-use the data later
+- You eat the cost of IO for each temp table
+- Materialized view is similar concept - but you eat the one off cost of creating it, and updating it each time data changes
+- CTEs are usually fine for what most people need to do - abuse of temp tables is not good either
+
+# Making Lines more readable
+- It’s best practice and much more readable to place each field on its one line
+```sql
+select 
+  reason_code
+  , blah_blah
+  , sum(blah)       as sum_of_blah
+group by 
+  1
+  , 2
+  ```
+  Charlie Han example - https://hastebin.com/etifaroqiy.rust
+
+- When you have windows functions or agg functions, it’s good to put them on their own line
+- Like in their own space
+- Visually much less taxing on the brain
+```sql
+final as (
+
+    select [distinct]
+        my_data.field_1,
+        my_data.field_2,
+        my_data.field_3,
+
+        -- use line breaks to visually separate calculations into blocks
+        case
+            when my_data.cancellation_date is null
+                and my_data.expiration_date is not null
+                then expiration_date
+            when my_data.cancellation_date is null
+                then my_data.start_date + 7
+            else my_data.cancellation_date
+        end as cancellation_date,
+
+        some_cte_agg.total_field_4,
+        some_cte_agg.max_field_5
+
+    from my_data
+    left join some_cte_agg  
+        on my_data.id = some_cte_agg.id
+    where my_data.field_1 = 'abc'
+        and (
+            my_data.field_2 = 'def' or
+            my_data.field_2 = 'ghi'
+        )
+    having count(*) > 1
+
+)
+
+select * from final
+```
+
+Per dbt: data base tool
+- DO NOT OPTIMIZE FOR A SMALLER NUMBER OF LINES OF CODE. NEWLINES ARE CHEAP, BRAIN TIME IS EXPENSIVE
+- ^ Rather have more lines of code that is readable then fewer lines that make it difficult to understand
+- It’s expensive on your brain to read bad code
+- Too much time reading bad code is expensive
