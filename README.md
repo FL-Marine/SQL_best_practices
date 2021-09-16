@@ -1,6 +1,26 @@
 # SQL_best_practices
 Personal SQL best practices README
 
+## Nandita's advice fot how to attack SQL projects/questions
+**Nandita:** "So when I started sql what I used to do was create a sample table in my notes and create the output table I’m envisioning and then work it out in a query. Almost like reverse engineer from what I want as the outcome to write the query. It takes time to explore options and ideas with both the output and the queries, but when I do those conceptually rather than theoretically, they got etched in my brain since I was always able to associate them back to specific  scenarios! If that helps :blush: "
+
+**Me:** "Did you hand write ?"
+
+**Nandita:** Yep! And hand drew tables lol
+"When I say tables I meant more like a entity relationship of the tables and what columns each table had with a 3-5 example data to make it easier"
+
+**Me:** "What about joins ?"
+
+**Nandita:** "So I would first understand and write down all the tables I need for my analysis and then sort of mark the relationship on paper and what keys help in join etc before you start doing queries."
+
+**Me:** "So my case it would be very beneficial to your draw everything out and make the connections since I don’t have a visual ERD"
+
+**Nandita:** " Yep! After a few times your muscle memory will just work wonders in recollecting these without having to take a pen and paper approach...I’m a very visual learner, so this helped to begin understanding and connecting dots"
+
+**Nandita:** "I made like a main table Google doc With all of the tables and possible joinas but even that didn’t really help me"
+
+**Nandita:** "I would say don’t try to do this pen to paper with allll the tables in the database.. begin with your use case / analysis you’re planning to do.. explore the datasets and figure out the tables you need and do this paper ERD to see how to interact with these tables to effectively get the output you desire."
+
 ## Checking Column Types
 ``` sql
 SELECT
