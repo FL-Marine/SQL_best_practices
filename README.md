@@ -1,6 +1,9 @@
 # SQL_best_practices
 Personal SQL best practices README
 
+## SQL Cheat Sheets
+- https://media-exp1.licdn.com/dms/document/C561FAQFkX-D576FMpA/feedshare-document-pdf-analyzed/0/1625332666646?e=1632171600&v=beta&t=yWPQDDA9vs3q39DAHiNwXDGZsp-Xi0rneYYYWG3aj_Y
+
 ## Nandita's advice fot how to attack SQL projects/questions
 **Nandita:** "So when I started sql what I used to do was create a sample table in my notes and create the output table I’m envisioning and then work it out in a query. Almost like reverse engineer from what I want as the outcome to write the query. It takes time to explore options and ideas with both the output and the queries, but when I do those conceptually rather than theoretically, they got etched in my brain since I was always able to associate them back to specific  scenarios! If that helps :blush: "
 
