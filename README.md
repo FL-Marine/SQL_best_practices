@@ -67,7 +67,10 @@ WHERE table_name = 'customer_orders';
 
 **How to use regular expressions (RegEx) in SQL Server to generate randomized test data** - https://solutioncenter.apexsql.com/using-regular-expressions-regex-in-sql-server-to-generate-randomized-test-data/
 
-# RANK, DENSE_RANK, ROW_NUMBER
+# Window Functions
+- Learning Window Functions example post by John Pauler https://www.linkedin.com/posts/johnpauler_sql-data-analysis-activity-6845329904163176448-sMWg
+
+**RANK, DENSE_RANK, ROW_NUMBER**
 - The RANK function is used to retrieve ranked rows based on the condition of the ORDER BY clause.
 - The DENSE_RANK function is similar to RANK function however the DENSE_RANK function does not skip any ranks if there is a tie between the ranks of the preceding records. 
 - Unlike the RANK and DENSE_RANK functions, the ROW_NUMBER function simply returns the row number of the sorted records starting with 1.
