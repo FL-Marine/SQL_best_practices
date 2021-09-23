@@ -198,3 +198,31 @@ Per dbt: data base tool
 - ^ Rather have more lines of code that is readable then fewer lines that make it difficult to understand
 - It’s expensive on your brain to read bad code
 - Too much time reading bad code is expensive
+
+# SQL Subqueries vs Temporary Tables vs CTEs
+John Pauler's full Linkedin post - https://www.linkedin.com/posts/johnpauler_sql-data-analysis-activity-6846753804105379840-5yiw
+Maven Analytics full blog post - https://www.mavenanalytics.io/blog/sql-subqueries-temporary-tables-ctes?utm_source=linkedin&utm_campaign=ctesubqueries_jp20210923
+
+They each have pros and cons. Here's the short of it...
+
+👉 SUBQUERIES 👈
++ the advantage is they can be really quick to write
+
+- one disadvantage here is when you get more complex and start nesting subqueries, it gets hard to read (example in blog post)
+
+- another disadvantage is if your data gets huge, you have fewer options to performance optimize it
+
+👉 CTEs 👈
++ these are great if you've got long code and want to create a new data set early on which you will reference multiple times
+
++ for complex stuff, this tends to make your code easier to follow than gross nested subqueries
+
+- the downisde is, CTEs don't support indexing, so if your manufactured data gets really huge, you can't index it to performance optimize your query
+
+👉 TEMPORARY TABLES 👈
++ these have the same reusability and readability advantages of CTEs over subqueries
+
++ the additional advantage over CTEs is that you can create an index on a temporary table. So if you're working with huge data sets and need to do some performance optimization, you have that option
+
+- the downside some would argue here is creating the temporary table is more cumbersome code (not too bad though)
+
