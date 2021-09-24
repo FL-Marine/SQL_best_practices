@@ -49,6 +49,36 @@ WHERE table_name = 'customer_orders';
 - Data types maybe listed incorrectly which will cause issues later on and will prevent a proper analysis on the data.
 - **This is to be considered the first step prior to any data cleaning.**
 
+## Joins - Go thru Danny's course to understand joining multiple tables
+**Danny:** "You need to profile both columns to see what values are missing or duplicates in each before deciding what you want to do"
+
+**Me:** "by profile columns you mean compare them?"
+
+**Danny:** "Yes - look at counts of each join column Use the magic CTE combo" 
+```sql
+With cte_counts as (
+  Select
+    column,
+    count(*) as counts
+  from
+    table
+  group by
+    1
+)
+select
+  counts,
+  count(distinct column) as ids
+from
+  cte_counts
+group by
+  1
+order by
+  1
+);
+```
+
+![image](https://user-images.githubusercontent.com/74512335/134607657-c3b15faf-bcc7-43a1-af5d-04b6a28c61d1.png)
+
 ## Changing one data type to another
 - CAST changes one data type to another 
 - :: is just a shortcut for cast
