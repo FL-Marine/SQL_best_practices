@@ -296,3 +296,85 @@ They each have pros and cons. Here's the short of it...
 
 - the downside some would argue here is creating the temporary table is more cumbersome code (not too bad though)
 
+## Query Processing Order
+SELECT
+i.name AS instructor_name,
+COUNT(c.course_id) AS courses_taught
+FROM online_courses c
+INNER JOIN instructors i
+ON c.instructor_id = i.instructor_id
+WHERE c.topic IN('SQL','Tableau','Machine Learning')
+GROUP BY i.name
+HAVING COUNT(c.course_id) > 2
+ORDER BY courses_taught DESC
+LIMIT 10;
+
+Here's how the query will process...
+
+1) FROM and JOIN -- first, the tables are identified
+
+2) WHERE -- next, rows are filtered out (using course topic)
+
+3) GROUP BY -- then, the data is grouped (instructor name)
+
+4) HAVING -- next, groups are filtered out (< 2 courses)
+
+5) SELECT -- next, the two columns are selected
+
+6) ORDER BY -- then, results are ranked (most courses first)
+
+7) LIMIT -- finally, results are limited (top 10 only)
+
+Understanding SQL execution order is important...
+
+This helps you write more efficient queries, and gives you a better understand of what's happening on the back-end.
+
+It explains why you can use the alias courses_taught in the ORDER BY but you can't use it in the HAVING (because it is named in the SELECT, after the HAVING has executed).
+
+Maven Analytics LinkedIn post: https://www.linkedin.com/posts/maven-analytics_mavenquicktips-sql-analysis-activity-6839889934048923648-xbeU
+
+## Exploring unfamilar Tables
+1. Find the number of rows in the table:
+-- quickly understand how large your data set is
+
+SELECT COUNT(*) AS number_of_rows
+FROM tablename;
+
+2. Find the date range covered in the table:
+-- helps frame analysis and understand limitations
+
+SELECT
+MIN(created_at) AS first_created_at,
+MAX(created_at) AS last_created_at
+FROM tablename;
+
+3. Learn which values are most common in a column:
+-- easy way to start understanding specific columns
+
+SELECT
+columnname,
+COUNT(*) AS times_repeated
+FROM tablename
+GROUP BY columnname
+ORDER BY times_repeated DESC;
+
+4. See what trends look like:
+-- is record-writing volume steady / decreasing / increasing?
+-- example shows date-level. Do the same for months, etc.
+
+SELECT
+DATE(created_at) AS created_date,
+COUNT(*) AS records_on_date
+FROM tablename
+GROUP BY DATE(created_at)
+ORDER BY DATE(created_at);
+
+5. Return all columns, all records, to view the data:
+-- do a visual inspection of the actual table contents
+
+SELECT *
+FROM tablename
+LIMIT 1000;
+-- syntax varies (MySQL = LIMIT, SQL Server = TOP, etc)
+
+Maven Analytics LinkedIn post: https://www.linkedin.com/posts/maven-analytics_mavenquicktips-sql-data-activity-6847137743961673728-9-iD
