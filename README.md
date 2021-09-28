@@ -49,6 +49,22 @@ WHERE table_name = 'customer_orders';
 - Data types maybe listed incorrectly which will cause issues later on and will prevent a proper analysis on the data.
 - **This is to be considered the first step prior to any data cleaning.**
 
+## The Big 6 of SQL Querying
+![image](https://user-images.githubusercontent.com/74512335/135074919-6deba6b6-2e59-4a3b-9d42-3bd0cd02aa62.png)
+
+1) Start with SELECT and FROM. Pull some data. See? Easy!
+
+2) Next, add a WHERE condition to filter which rows you want returned in your result set.
+
+3) Then, add a GROUP BY to create segments in your data.
+(As you gain experience, this will become POWERFUL).
+
+4) Add a HAVING clause to return only the groups that match certain group-level filtering criteria. This is like WHERE, but for groups.
+
+5) Finally, apply an ORDER BY to specify how your records should be sorted. The default order is ascending, and you can modify it with DESC to display your largest values at the top.
+
+John Pauler LinkedIn post: https://www.linkedin.com/posts/johnpauler_mavenquicktips-sql-data-activity-6847870369701916672-aWDO
+
 ## Joins - Go thru Danny's course to understand joining multiple tables
 **Danny:** "You need to profile both columns to see what values are missing or duplicates in each before deciding what you want to do"
 
