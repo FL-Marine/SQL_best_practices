@@ -95,6 +95,30 @@ order by
 
 ![image](https://user-images.githubusercontent.com/74512335/134607657-c3b15faf-bcc7-43a1-af5d-04b6a28c61d1.png)
 
+### Maven Analytics Post
+```sql
+SELECT
+courses.title AS online_course_title,
+instructors.name AS instructor_name
+FROM courses
+INNER JOIN instructors
+ON courses.instructor_id = instructors.instructor_id
+```
+
+1) 'courses' is the first table named in the FROM, making it our 'LEFT' table. Other tables will be added 'to the RIGHT'.
+
+2) 'instructors' is the table named in the JOIN, making it the 'RIGHT' table in this example.
+
+3) The ON clause(last line), specifies HOW to JOIN the tables. In this case, the JOIN will match instructor_id values from the two tables to associate the records.
+
+4) When we use an INNER JOIN, as written above, the result is limited to records from both tables where there is a match using instructor_id, and all unmatching records from either table will be removed.
+
+5) If we had used LEFT JOIN instead, we would return all of the records from our LEFT table, plus any matching records from our RIGHT table. LEFT JOIN preserves all LEFT table records.
+
+6) If we had used RIGHT JOIN, we would return all records from our RIGHT table, plus matching records from our LEFT table. RIGHT JOIN preserves all RIGHT table records.
+
+Link: https://www.linkedin.com/posts/maven-analytics_sql-data-mavenquicktips-activity-6847862520548524032-b-G3
+
 ## Changing one data type to another
 - CAST changes one data type to another 
 - :: is just a shortcut for cast
