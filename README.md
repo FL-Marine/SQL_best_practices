@@ -378,3 +378,32 @@ LIMIT 1000;
 -- syntax varies (MySQL = LIMIT, SQL Server = TOP, etc)
 
 Maven Analytics LinkedIn post: https://www.linkedin.com/posts/maven-analytics_mavenquicktips-sql-data-activity-6847137743961673728-9-iD
+
+## Entity Relationship Diagrams Model aka Entity Relationship Diagrams
+Create a ERDM (Entity Relationship Diagrams Model) before you make SQL projects.
+
+Here's why:
+
+✔️Clear model. You get to see how tables relate to each other. It's a plan before you create the query, and saves you time.
+
+✔️Recognize errors. You can use it to find why that table ain't joining. Without having to waste time using trial and error.
+
+✔️Helps people viewing your SQL project. Without an ERDM, we don't know the relationships between the tables nor the structure of your database. It lacks context.
+
+✔️Relationships. An ERDM helps show the nature of relationships between tables at a high level. Helps when you are doing data modeling project.
+
+So if you have more than 3 tables, create an ERD.
+
+Yes its long process.
+
+But by the end, you have a sense of the relationships and structure in your head.
+
+The biggest benefit?
+
+It helps interviewers understand what you did in your SQL project, and helps you walk them through it.
+
+![image](https://user-images.githubusercontent.com/74512335/135329348-559ba51e-3b83-4983-a153-cd07630010b7.png)
+
+Matthew Blasa LinkedIn Post: https://www.linkedin.com/posts/mblasa_sql-data-dataanalysis-activity-6848986642703806464-oSd0
+
+53:00 minute mark ERDM explanation: https://www.youtube.com/watch?v=6wx6oZxObhs
