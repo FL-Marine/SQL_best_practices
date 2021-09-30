@@ -1,6 +1,36 @@
 # SQL_best_practices
 Personal SQL best practices README
 
+##  Here are some intermediate SQL techniques that will help you for your next data analytics and data science projects!
+
+Danny's LinkedIn post: https://www.linkedin.com/posts/datawithdanny_sql-data-analytics-activity-6849327137397329920-uRfn
+
+1. Group by aggregates and summary statistics - mean, stddev, percentiles, correlations etc
+
+2. Calculate record counts with and without NULL values
+
+3. Exploring your datasets to determine which table join to use - not everything is an INNER JOIN !
+
+4. Avoiding full table scans by using partitions and indexes
+
+5. Speed up joins by using indexes (especially using the right sort order for multi-column indexes!!!)
+
+6. Calculate rolling, cumulative and comparison metrics using window functions
+
+7. Implement COUNTIF/SUMIF functions with CASE WHEN statements
+
+8. Generate sequences/array to creatively join and pivot datasets efficiently
+
+9. Identify duplicates in datasets (esp. in joins!) and use LEFT SEMI/ANTI joins for multi-table data analysis
+
+10. Use LIKE with anchors and wildcards, as well as regular expressions for complex data cleaning exercises
+
+11. Learn how to manipulate datetime fields - especially when working with timezones
+
+12. Use slow changing dimensions and other data designs for efficient data pipelines
+
+13. Learn about (materialized) views, CTEs, subqueries and temp tables
+
 ## SQL Cheat Sheets
 - https://media-exp1.licdn.com/dms/document/C561FAQFkX-D576FMpA/feedshare-document-pdf-analyzed/0/1625332666646?e=1632171600&v=beta&t=yWPQDDA9vs3q39DAHiNwXDGZsp-Xi0rneYYYWG3aj_Y
 - https://media-exp1.licdn.com/dms/document/C561FAQHWGJnxqRzDaA/feedshare-document-pdf-analyzed/0/1626842110988?e=1632171600&v=beta&t=gnAoYN4cRQ_-VWITmveb8gU_RNJOAZwefoOTywaLLBc
