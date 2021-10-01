@@ -31,6 +31,35 @@ Danny's LinkedIn post: https://www.linkedin.com/posts/datawithdanny_sql-data-ana
 
 13. Learn about (materialized) views, CTEs, subqueries and temp tables
 
+## SQL Fundamentals
+ Start with SQL! Here are some fundamentals below 🤗
+
+1. SELECT statements to return all columns or derived expressions from database tables
+
+2. LIMIT or TOP to return the first few records from a table
+
+3. ORDER BY to sort data outputs using columns/expressions - multi-level sorts are possibble
+
+4. WHERE filters to include/exclude records based off logical conditions with equality, inequalities, BETWEEN and IN/NOT IN
+
+5. DISTINCT to remove duplicate rows or records from columns
+
+6. COUNT and COUNT DISTINCT for finding the number of records in tables and columns - bonus points if you also deal with NULL values here!
+
+7. GROUP BY clause to perform aggregate calculations such as MIN, MAX, AVG, STDDEV and COUNT
+
+8. Manipulate datetime columns using DATE_TRUNC and EXTRACT functions and other SQL flavour specific functions
+
+9. Table joins - INNER, LEFT, CROSS, FULL (skip right joins!) as well as LEFT SEMI and ANTI JOIN, also known as WHERE (NOT) EXISTS
+
+10. Set operations - UNION ALL, UNION (UNION ALL but with a DISTINCT), EXCEPT, INTERSECT
+
+11. Window functions - partition, order and frame mode
+
+12. CTEs, subqueries, temp tables and views
+
+Danny's LinkedIn post: https://www.linkedin.com/posts/datawithdanny_datascience-data-analytics-activity-6849706017413062657-0GRU
+
 ## SQL Cheat Sheets
 - https://media-exp1.licdn.com/dms/document/C561FAQFkX-D576FMpA/feedshare-document-pdf-analyzed/0/1625332666646?e=1632171600&v=beta&t=yWPQDDA9vs3q39DAHiNwXDGZsp-Xi0rneYYYWG3aj_Y
 - https://media-exp1.licdn.com/dms/document/C561FAQHWGJnxqRzDaA/feedshare-document-pdf-analyzed/0/1626842110988?e=1632171600&v=beta&t=gnAoYN4cRQ_-VWITmveb8gU_RNJOAZwefoOTywaLLBc
