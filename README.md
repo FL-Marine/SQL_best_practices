@@ -466,3 +466,47 @@ It helps interviewers understand what you did in your SQL project, and helps you
 Matthew Blasa LinkedIn Post: https://www.linkedin.com/posts/mblasa_sql-data-dataanalysis-activity-6848986642703806464-oSd0
 
 53:00 minute mark ERDM explanation: https://www.youtube.com/watch?v=6wx6oZxObhs
+
+## Maven Analytics post: https://www.linkedin.com/posts/maven-analytics_mavenquicktips-sql-data-activity-6855472532544352257-8I_M
+Here's an easy one that will help SQL beginners write queries more efficiently.
+
+Use the IN( ) operator.
+
+There are a few main benefits of using IN( )...
+
+1. You'll write queries a bit faster
+
+2. Your queries will be more human readable
+
+3. You'll make fewer mistakes with complex AND + OR logic
+
+For example, let's start with the following query...
+```sql
+SELECT
+course_name,
+instructor,
+avg_student_rating
+FROM online_courses
+WHERE topic = 'SQL'
+OR topic = 'Excel'
+OR topic = 'Power BI'
+OR topic = 'Tableau'
+```
+The query will return all records that match any of those 4 topics. It's fairly intuitive, but can be simplified with IN( )...
+```sql
+SELECT
+course_name,
+instructor,
+avg_student_rating
+FROM online_courses
+WHERE topic IN ('SQL', Excel', 'Power BI', 'Tableau')
+```
+This query returns the exact same result set as the first.
+
+But it's quicker to write and easier to read.
+
+This example had just 4 values. Imagine when you have 40 :)
+
+John says he uses IN( ) with WHERE conditions and inside CASE statements, pretty much every day.
+Really easy. Super powerful.
+
