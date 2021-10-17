@@ -1,5 +1,5 @@
 # SQL_best_practices
-Personal SQL best practices README
+Personal SQL best practices README.md
 
 ##  Here are some intermediate SQL techniques that will help you for your next data analytics and data science projects!
 
