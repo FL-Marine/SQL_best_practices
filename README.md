@@ -510,3 +510,8 @@ This example had just 4 values. Imagine when you have 40 :)
 John says he uses IN( ) with WHERE conditions and inside CASE statements, pretty much every day.
 Really easy. Super powerful.
 
+## Helen Wall https://www.linkedin.com/posts/helenrmwall_sql-datascience-datavisualizations-activity-6856952524394569728-M0RX
+
+When I first learned SQL, I found it helpful to first think about how I would logically reduce the data first in my own mind. I would then translate these steps into a SQL query like we see in this graphic. It's small steps like this that let us get started on learning something much larger like writing entire SQL query with more advanced steps. #sql #datascience #datavisualizations
+
+![image](https://user-images.githubusercontent.com/74512335/138305247-668edbdf-9c30-4423-94e5-c4fb416eeb82.png)
