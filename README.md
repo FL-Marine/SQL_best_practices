@@ -550,3 +550,4 @@ OR 2) You later identify that you want a column to ave unique values as well. So
 ALTER TABLE person
 ADD CONSTRAINT unique_email_id UNIQUE (email_id);
 ```
+Akshaya: Here's a whole walkthrough of Unique constraint which might make the topic more clear + it'll show you multiple ways to go about adding the unique constraint: https://www.postgresqltutorial.com/postgresql-unique-constraint/
