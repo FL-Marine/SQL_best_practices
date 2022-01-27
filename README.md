@@ -515,3 +515,38 @@ Really easy. Super powerful.
 When I first learned SQL, I found it helpful to first think about how I would logically reduce the data first in my own mind. I would then translate these steps into a SQL query like we see in this graphic. It's small steps like this that let us get started on learning something much larger like writing entire SQL query with more advanced steps. #sql #datascience #datavisualizations
 
 ![image](https://user-images.githubusercontent.com/74512335/138305247-668edbdf-9c30-4423-94e5-c4fb416eeb82.png)
+
+## UNIQUE & DISTINCT
+Me: is unique and distinct confusing like where and having?
+
+Akshaya: Not confusing per se if you understand where it's applied. Distinct as we know is used in queries to fetch the OG items from a column/set of columns. It doesn't change the data or table structure, just displays what is asked.
+
+Unique is a constraint/condition (like primary key) that you can apply on the table while creating it or even after creating it and it applies to the whole column/columns. Unique acts like a barricade to prevent any entry of duplicate data itself. So if you try to insert a new data with an employee ID of 007, and it already exists, it will throw you an error. So this does affect how the data is stored in the table as well as table structure.
+
+Me: So UNIQUE prevents you from ever having duplicates ?
+
+Akshaya: Yesss, for the entire column that you've chosen to have it.
+
+Akshaya: Also, with regards to constraints, you can have multiple columns in a table identified with a unique constraint but when it comes to Primary Key Column, 
+
+![image](https://user-images.githubusercontent.com/74512335/151454300-26cdaed6-4441-4cae-81a3-6c5fcfd62fd5.png)
+
+Me: SELECT UNIQUE column_name can be set to only take UNIQUE values when it’s created or in a query
+And it will be like that forever
+
+Akshaya: Ah no, you cannot use Unique with a SELECT query cause it's a table level constraint-> i.e. it alters the structure of a table and the data inside of it. How you can do it is: 
+
+1) You can apply it when you are creating the table itself and you already know that this particular column must ONLY have unique values (personID, SSN, license number) 
+```sql
+CREATE TABLE person (
+    first_name VARCHAR (50),
+    last_name VARCHAR (50),
+        email_id VARCHAR (50),
+    SSN VARCHAR (50) UNIQUE
+);
+```
+OR 2) You later identify that you want a column to ave unique values as well. So then you can ALTER the table. 
+```sql
+ALTER TABLE person
+ADD CONSTRAINT unique_email_id UNIQUE (email_id);
+```
