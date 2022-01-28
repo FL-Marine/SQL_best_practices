@@ -551,3 +551,14 @@ ALTER TABLE person
 ADD CONSTRAINT unique_email_id UNIQUE (email_id);
 ```
 Akshaya: Here's a whole walkthrough of Unique constraint which might make the topic more clear + it'll show you multiple ways to go about adding the unique constraint: https://www.postgresqltutorial.com/postgresql-unique-constraint/
+
+### All About The Data
+Brian: Yeah, SELECT UNIQUE ... is only available in Oracle. But you can use the UNIQUE keyword when creating or altering tables.
+99.99% of the time I'm querying data from tables so that's probably why I use SELECT DISTINCT ...  so often haha
+UNIQUE usage 👉 https://www.w3schools.com/sql/sql_unique.asp
+SELECT DISTINCT usage 👉  https://www.w3schools.com/sql/sql_distinct.asp
+SELECT UNIQUE usage in Oracle-only 👉 https://www.1keydata.com/sql/sql-select-unique.html
+
+hsuya: Unique is used so that there are no two same record or identical values in the coulmn.
+Unique is a constraint.
+Distinct is used to remove duplicate from column and is used with 'select' statement.
