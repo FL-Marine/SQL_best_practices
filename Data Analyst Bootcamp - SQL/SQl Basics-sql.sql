@@ -25,7 +25,7 @@ SELECT TOP (1000) [EmployeeID]
       ,[LastName]
       ,[Age]
       ,[Gender]
-  FROM [SQL Tutorial].[dbo].[EmployeeDemographics]
+  FROM [SQLTutorial].[dbo].[EmployeeDemographics]
   
   | EmployeeID | FirstName | LastName   | Age | Gender |
 | ---------- | --------- | ---------- | --- | ------ |
@@ -63,7 +63,7 @@ Insert Into EmployeeSalary VALUES
 SELECT TOP (1000) [EmployeeID]
       ,[JobTitle]
       ,[Salary]
-  FROM [SQL Tutorial].[dbo].[EmployeeSalary]
+  FROM [SQLTutorial].[dbo].[EmployeeSalary]
 
 | EmployeeID | JobTitle           | Salary |
 | ---------- | ------------------ | ------ |
