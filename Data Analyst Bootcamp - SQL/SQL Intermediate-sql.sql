@@ -158,4 +158,30 @@ FROM SQLTutorial.dbo.EmployeeDemographics AS Demo
 JOIN SQLTutorial.dbo.EmployeeSalary AS Sal
 	ON Demo.EmployeeID = Sal.EmployeeID
 
+/* Partition By
+*/
 
+SELECT FirstName, LastName, Gender, Salary, 
+	COUNT(Gender) OVER (PARTITION BY Gender) AS TotalGender
+FROM SQLTutorial.dbo.EmployeeDemographics AS Demo
+JOIN SQLTutorial.dbo.EmployeeSalary AS Sal
+	ON Demo.EmployeeID = Sal.EmployeeID
+-- Allows for all desired columns to be in the output while keeping an aggregation function
+
+| FirstName | LastName | Gender | Salary | TotalGender |
+| --------- | -------- | ------ | ------ | ----------- |
+| Pam       | Beasley  | Female | 36000  | 3           |
+| Angela    | Martin   | Female | 47000  | 3           |
+| Meredith  | Palmer   | Female | 41000  | 3           |
+| Jim       | Halpert  | Male   | 45000  | 5           |
+| Stanley   | Hudson   | Male   | 48000  | 5           |
+| Kevin     | Malone   | Male   | 42000  | 5           |
+| Michael   | Scott    | Male   | 65000  | 5           |
+| Dwight    | Schrute  | Male   | 63000  | 5           |
+
+SELECT Gender, COUNT(Gender)
+FROM SQLTutorial.dbo.EmployeeDemographics AS Demo
+JOIN SQLTutorial.dbo.EmployeeSalary AS Sal
+	ON Demo.EmployeeID = Sal.EmployeeID
+GROUP BY Gender
+-- Rolls up what is being queried without seeing other columns that maybe selected
