@@ -131,5 +131,31 @@ ORDER BY Avg(Salary)
 | Salesman         | 52000     |
 | Regional Manager | 65000     |
 
+/* Updating/Deleting Data
+*/
+
+SELECT *
+FROM SQLTutorial.dbo.EmployeeDemographics
+
+UPDATE SQLTutorial.dbo.EmployeeDemographics
+SET Age = 31, Gender = 'Female'
+WHERE FirstName = 'Holly' AND LastName = 'Flax'
+
+DELETE FROM SQLTutorial.dbo.EmployeeDemographics
+WHERE EmployeeID = 1005
+
+/* Aliasing
+*/
+
+SELECT FirstName + ' ' + LastName AS FullName
+FROM SQLTutorial.dbo.EmployeeDemographics
+
+SELECT AVG(Age) AS AvgAge
+FROM SQLTutorial.dbo.EmployeeDemographics
+
+SELECT Demo.EmployeeID, Sal.Salary
+FROM SQLTutorial.dbo.EmployeeDemographics AS Demo
+JOIN SQLTutorial.dbo.EmployeeSalary AS Sal
+	ON Demo.EmployeeID = Sal.EmployeeID
 
 
