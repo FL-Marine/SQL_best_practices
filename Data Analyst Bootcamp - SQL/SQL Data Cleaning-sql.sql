@@ -147,16 +147,70 @@ SELECT
 		 ELSE CAST(SoldAsVacant AS varchar)
 	END
 FROM PortfolioProject.dbo.NashvilleHousing;
+-- CASE WHEN statement converting from bit to varchar to make this work
 
-UPDATE NashvilleHousing
-SET SoldAsVacant = 
-    CASE WHEN SoldAsVacant = 1 THEN 'Yes'
-         WHEN SoldAsVacant = 0 THEN 'No'
-         ELSE CAST(SoldAsVacant AS varchar)
-    END;
+--UPDATE NashvilleHousing
+--SET SoldAsVacant = 
+--    CASE WHEN SoldAsVacant = 1 THEN 'Yes'
+--         WHEN SoldAsVacant = 0 THEN 'No'
+--         ELSE CAST(SoldAsVacant AS varchar)
+--    END;
 	-- Cant CAST for some reason
 
 
 ----------------------------------------------------------------------------------------------------------------------
 
 -- Remove duplicates
+
+WITH RowNumCTE AS (
+SELECT *,
+	ROW_NUMBER() OVER (
+	PARTITION BY ParcelID,
+	-- partition by things that should be unique for each row
+				 PropertyAddress,
+				 SalePrice,
+				 SaleDate,
+				 LegalReference
+				 ORDER BY 
+					UniqueID
+					) row_num
+FROM NashvilleHousing
+--ORDER BY ParcelID
+)
+SELECT *
+FROM RowNumCTE
+WHERE row_num > 1
+-- ORDER BY PropertyAddress
+
+--104 duplicates
+
+WITH RowNumCTE AS (
+SELECT *,
+	ROW_NUMBER() OVER (
+	PARTITION BY ParcelID,
+	-- partition by things that should be unique for each row
+				 PropertyAddress,
+				 SalePrice,
+				 SaleDate,
+				 LegalReference
+				 ORDER BY 
+					UniqueID
+					) row_num
+FROM NashvilleHousing
+--ORDER BY ParcelID
+)
+DELETE 
+-- Deleting duplicate rows
+FROM RowNumCTE
+WHERE row_num > 1
+-- ORDER BY PropertyAddress
+
+----------------------------------------------------------------------------------------------------------------------
+
+-- Delete Unused Columns
+
+SELECT *
+FROM NashvilleHousing
+
+ALTER TABLE NashvilleHousing
+DROP COLUMN OwnerAddress, TaxDistrict, PropertyAddress
