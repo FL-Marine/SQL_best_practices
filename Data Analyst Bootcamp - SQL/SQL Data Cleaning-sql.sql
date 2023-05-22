@@ -64,4 +64,71 @@ FROM NashvilleHousing
 -- WHERE PropertyAddress IS NULL
 -- ORDER BY ParcelID
 
+SELECT
+SUBSTRING(PropertyAddress, 1,CHARINDEX(',',PropertyAddress)-1) AS Address,
+-- Looking at the first value in property address and then searching for the comma
+-- -1 Gets rid of the comma
+SUBSTRING(PropertyAddress, CHARINDEX(',',PropertyAddress)+1, LEN(PropertyAddress)) AS Address
+-- Gets the city
+FROM NashvilleHousing
+
+/* Updating the tables
+*/
+ALTER TABLE NashvilleHousing
+Add PropertySplitAddress NVARCHAR(255);
+
+UPDATE NashvilleHousing
+SET PropertySplitAddress = SUBSTRING(PropertyAddress, 1,CHARINDEX(',',PropertyAddress)-1)
+
+ALTER TABLE NashvilleHousing
+Add PropertySplitCity NVARCHAR(255);
+
+UPDATE NashvilleHousing
+SET PropertySplitCity = SUBSTRING(PropertyAddress, CHARINDEX(',',PropertyAddress)+1, LEN(PropertyAddress)) 
+
+SELECT * 
+FROM NashvilleHousing
+-- Verifying columns were added to table
+
+/*Splitting out owner addeess
+*/
+
+SELECT OwnerAddress
+FROM NashvilleHousing
+
+SELECT 
+PARSENAME(REPLACE(OwnerAddress,',','.'),3),
+PARSENAME(REPLACE(OwnerAddress,',','.'),2),
+PARSENAME(REPLACE(OwnerAddress,',','.'),1)
+--PARSENAME looks for periods not commas
+--REPLACE looks for commas first then changes to period
+-- Is listed as 3,2,1 because it PARSENAME runs everything backwards
+FROM NashvilleHousing
+
+/* Updating table again
+*/
+ALTER TABLE NashvilleHousing
+Add OwnerSplitAddress Nvarchar(255);
+
+Update NashvilleHousing
+SET OwnerSplitAddress = PARSENAME(REPLACE(OwnerAddress, ',', '.') , 3)
+
+ALTER TABLE NashvilleHousing
+Add OwnerSplitCity Nvarchar(255);
+
+Update NashvilleHousing
+SET OwnerSplitCity = PARSENAME(REPLACE(OwnerAddress, ',', '.') , 2)
+
+ALTER TABLE NashvilleHousing
+Add OwnerSplitState Nvarchar(255);
+
+Update NashvilleHousing
+SET OwnerSplitState = PARSENAME(REPLACE(OwnerAddress, ',', '.') , 1)
+
+SELECT *
+FROM NashvilleHousing
+
+----------------------------------------------------------------------------------------------------------------------
+
+-- Change Y and N to Yes and No in "Sold as Vacant" field
 
