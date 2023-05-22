@@ -132,3 +132,31 @@ FROM NashvilleHousing
 
 -- Change Y and N to Yes and No in "Sold as Vacant" field
 
+SELECT DISTINCT(SoldAsVacant)
+FROM NashvilleHousing
+
+Select Distinct(SoldAsVacant), Count(SoldAsVacant)
+From PortfolioProject.dbo.NashvilleHousing
+Group by SoldAsVacant
+order by 2
+
+SELECT 
+	CAST(SoldAsVacant AS varchar) AS SoldAsVacant,
+	CASE WHEN SoldAsVacant = 1 THEN 'Yes'
+		 WHEN SoldAsVacant = 0 THEN 'No'
+		 ELSE CAST(SoldAsVacant AS varchar)
+	END
+FROM PortfolioProject.dbo.NashvilleHousing;
+
+UPDATE NashvilleHousing
+SET SoldAsVacant = 
+    CASE WHEN SoldAsVacant = 1 THEN 'Yes'
+         WHEN SoldAsVacant = 0 THEN 'No'
+         ELSE CAST(SoldAsVacant AS varchar)
+    END;
+	-- Cant CAST for some reason
+
+
+----------------------------------------------------------------------------------------------------------------------
+
+-- Remove duplicates
