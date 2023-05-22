@@ -214,3 +214,6 @@ FROM NashvilleHousing
 
 ALTER TABLE NashvilleHousing
 DROP COLUMN OwnerAddress, TaxDistrict, PropertyAddress
+
+ALTER TABLE NashvilleHousing
+DROP COLUMN SaleDate
