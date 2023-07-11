@@ -1,1 +1,10 @@
+Salaries Differences 
+Write a query that calculates the difference between the highest salaries found in the marketing and engineering departments. Output just the absolute difference in salaries.
+
+SELECT
+    (MAX(CASE WHEN dept.department = 'marketing' THEN emp.salary END) - MAX(CASE WHEN dept.department = 'engineering' THEN emp.salary END)) AS salary_difference
+FROM db_employee AS emp
+LEFT JOIN db_dept AS dept
+    ON dept.id = emp.department_id
+WHERE dept.department IN ('marketing', 'engineering');
 
