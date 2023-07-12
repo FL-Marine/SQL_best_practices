@@ -11,8 +11,9 @@ FROM db_employee AS emp
 LEFT JOIN db_dept AS dept
     ON dept.id = emp.department_id
 WHERE dept.department IN ('marketing', 'engineering');
-
--- output is 2400
+| salary_difference |
+| ----------------- |
+| 2400              |
 
 /* We have a table with employees and their salaries, however, some of the records are old and contain outdated salary information. 
 Find the current salary of each employee assuming that salaries increase each year. Output their id, first name, last name, department ID, and current salary. 
