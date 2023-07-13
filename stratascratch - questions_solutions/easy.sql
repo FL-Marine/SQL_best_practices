@@ -42,3 +42,20 @@ group by
 | 1  | Todd       | Wilson    | 110000 | 1006          |
 | 2  | Justin     | Simon     | 130000 | 1005          |
 | 3  | Kelly      | Rosario   | 42689  | 1002          |
+
+/* 
+Find the last time each bike was in use. Output both the bike number and the date-timestamp of the bike's last use (i.e., the date-time the bike was returned). Order the results by bikes that were most recently used.
+
+Hints
+To find the last time each bike was in use, we need to select the bike number and the date-timestamp of the bike's last use from the dc_bikeshare_q1_2012 table. We also need to order the results by bikes that were most recently used.*/
+
+select 
+    bike_number,
+    max(end_time) AS last_used
+from dc_bikeshare_q1_2012
+group by bike_number
+order by last_used desc
+| bike_number | last_used       |
+| ----------- | --------------- |
+| W01278      | 3/31/2012 19:28 |
+| W01097      | 3/31/2012 15:37 |
