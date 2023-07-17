@@ -22,7 +22,8 @@ Order your list by employee ID in ascending order.
 Hints 
 Ideally this dataset should consists of unique records of employees for only current year
 There are multiple years of data can be found for some employees
-Until now at every compensation revision cycle, all employees have received a salary increase so you can assume that the highest salary is the employee's current salary. Use a max() function to find the highest salary for each employee.
+Until now at every compensation revision cycle, all employees have received a salary increase so you can assume that the highest salary is the employee's current salary. 
+    Use a max() function to find the highest salary for each employee.
 The output should be all the details of all the employees with correct salary */
 
 select 
@@ -47,7 +48,8 @@ group by
 Find the last time each bike was in use. Output both the bike number and the date-timestamp of the bike's last use (i.e., the date-time the bike was returned). Order the results by bikes that were most recently used.
 
 Hints
-To find the last time each bike was in use, we need to select the bike number and the date-timestamp of the bike's last use from the dc_bikeshare_q1_2012 table. We also need to order the results by bikes that were most recently used.*/
+To find the last time each bike was in use, we need to select the bike number and the date-timestamp of the bike's last use from the dc_bikeshare_q1_2012 table.
+We also need to order the results by bikes that were most recently used.*/
 
 select 
     bike_number,
@@ -59,3 +61,22 @@ order by last_used desc
 | ----------- | --------------- |
 | W01278      | 3/31/2012 19:28 |
 | W01097      | 3/31/2012 15:37 |
+
+/* Find the number of rows for each review score earned by 'Hotel Arena'. Output the hotel name (which should be 'Hotel Arena'),
+review score along with the corresponding number of rows with that score for the specified hotel.
+*/
+SELECT 
+    hotel_name,
+    reviewer_score,
+    COUNT(reviewer_score) AS count
+FROM hotel_reviews
+WHERE hotel_name = 'Hotel Arena'
+GROUP BY  
+    hotel_name,
+    reviewer_score;
+| hotel_name  | reviewer_score | count |
+| ----------- | -------------- | ----- |
+| Hotel Arena | 3.8            | 1     |
+| Hotel Arena | 4.2            | 1     |
+| Hotel Arena | 4.6            | 1     |
+| Hotel Arena | 5.4            | 1     |
