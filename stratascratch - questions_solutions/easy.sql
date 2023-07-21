@@ -85,6 +85,12 @@ GROUP BY
 SELECT 
     SUM(CASE WHEN nominee = 'Abigail Breslin' THEN 1 ELSE 0 END) AS n_movies_by_abi
 FROM oscar_nominees;
+
+-- This query works as well
+
+SELECT COUNT(*) AS n_movies_by_abi
+FROM oscar_nominees
+WHERE nominee = 'Abigail Breslin'
 | n_movies_by_abi |
 | --------------- |
 | 1               |
