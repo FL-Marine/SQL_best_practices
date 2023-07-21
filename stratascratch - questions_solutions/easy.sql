@@ -80,3 +80,12 @@ GROUP BY
 | Hotel Arena | 4.2            | 1     |
 | Hotel Arena | 4.6            | 1     |
 | Hotel Arena | 5.4            | 1     |
+
+/* Count the number of movies that Abigail Breslin was nominated for an oscar.*/
+SELECT 
+    SUM(CASE WHEN nominee = 'Abigail Breslin' THEN 1 ELSE 0 END) AS n_movies_by_abi
+FROM oscar_nominees;
+| n_movies_by_abi |
+| --------------- |
+| 1               |
+
