@@ -95,3 +95,23 @@ WHERE nominee = 'Abigail Breslin'
 | --------------- |
 | 1               |
 
+/* 
+Find all posts which were reacted to with a heart. For such posts output all columns from facebook_posts table.
+select * from facebook_reactions;
+select * from facebook_posts;
+I need to join two tables together via post_id
+Output must have post_id, post_text, post_keywords, post_date*/
+ SELECT
+    TOP 1
+    fbr.post_id,
+    fbr.poster,
+    fbp.post_text,
+    fbp.post_keywords,
+    fbp.post_date
+ FROM facebook_reactions AS fbr
+ LEFT JOIN facebook_posts AS fbp
+    ON fbr.post_id = fbp.post_id
+WHERE reaction = 'heart';
+| post_id | poster | post_text                  | post_keywords                 | post_date |
+| ------- | ------ | -------------------------- | ----------------------------- | --------- |
+| 1       | 1      | Lebron James is top class. | [basketball,lebron_james,nba] | 1/2/2019  |
