@@ -115,3 +115,35 @@ WHERE reaction = 'heart';
 | post_id | poster | post_text                  | post_keywords                 | post_date |
 | ------- | ------ | -------------------------- | ----------------------------- | --------- |
 | 1       | 1      | Lebron James is top class. | [basketball,lebron_james,nba] | 1/2/2019  |
+
+/*Meta/Facebook has developed a new programing language called Hack.To measure the popularity of Hack they ran a survey with their employees.
+The survey included data on previous programing familiarity as well as the number of years of experience, age, gender and most importantly satisfaction with Hack.
+Due to an error location data was not collected, but your supervisor demands a report showing average popularity of Hack by office location.
+Luckily the user IDs of employees completing the surveys were stored.
+Based on the above, find the average popularity of the Hack per office location.
+Output the location along with the average popularity.
+
+Requirements
+- Output must be 2 columns location and avg popularity by that location
+- Need to JOIN facebook_employees to facebook_hack_survey ON id field
+
+select * from facebook_employees;
+select * from facebook_hack_survey;
+*/
+
+/* The reason for casting popularity as a float in the SQL query is to ensure that the result of the AVG function is a floating point number, which can handle decimal values. 
+    If the AVG function were to operate on integers, the result would be an integer, and the fractional part would be discarded.
+ The reason some numbers are whole while others have decimal places is due to the nature of the AVG function and the data it operates on.*/
+SELECT
+    fb_emp.location,
+    AVG(CAST(fb_hs.popularity AS FLOAT)) AS avg_popularity
+FROM facebook_employees AS fb_emp
+LEFT JOIN facebook_hack_survey AS fb_hs
+    ON fb_emp.id = fb_hs.employee_id
+GROUP BY fb_emp.location;
+| location    | avg_popularity |
+| ----------- | -------------- |
+| India       | 7.5            |
+| Switzerland | 1              |
+| UK          | 4.333          |
+| USA         | 4.6            |
