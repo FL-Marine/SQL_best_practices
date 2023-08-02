@@ -147,3 +147,17 @@ GROUP BY fb_emp.location;
 | Switzerland | 1              |
 | UK          | 4.333          |
 | USA         | 4.6            |
+
+/* Find all Lyft drivers who earn either equal to or less than 30k USD or equal to or more than 70k USD.
+Output all details related to retrieved records.*/
+SELECT * 
+FROM lyft_drivers
+WHERE yearly_salary <= 30000 OR yearly_salary >= 70000;
+| index | start_date | end_date  | yearly_salary |
+| ----- | ---------- | --------- | ------------- |
+| 10    | 4/25/2018  | 4/28/2018 | 79536         |
+| 14    | 11/30/2015 | 4/24/2018 | 89270         |
+| 15    | 5/29/2018  |           | 87766         |
+| 17    | 5/7/2017   |           | 88828         |
+| 18    | 11/9/2018  |           | 82993         |
+| 20    | 4/23/2015  | 1/30/2017 | 71683         |
