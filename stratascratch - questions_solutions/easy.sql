@@ -161,3 +161,34 @@ WHERE yearly_salary <= 30000 OR yearly_salary >= 70000;
 | 17    | 5/7/2017   |           | 88828         |
 | 18    | 11/9/2018  |           | 82993         |
 | 20    | 4/23/2015  | 1/30/2017 | 71683         |
+
+/*Find how many times each artist appeared on the Spotify ranking list
+Output the artist name along with the corresponding number of occurrences.
+Order records by the number of occurrences in descending order.*/
+SELECT
+    artist,
+    COUNT(streams) AS n_occurrences
+FROM spotify_worldwide_daily_song_ranking
+GROUP BY artist
+ORDER BY n_occurrences DESC;
+| artist         | n_occurrences |
+| -------------- | ------------- |
+| Kendrick Lamar | 9             |
+| Ed Sheeran     | 5             |
+| Khalid         | 2             |
+| Manuel Turizo  | 2             |
+
+/* Find the base pay for Police Captains. Output the employee name along with the corresponding base pay.*/
+SELECT 
+    employeename,
+    basepay
+FROM sf_public_salaries
+WHERE jobtitle LIKE '%CAPTAIN%'
+| employeename      | basepay  |
+| ----------------- | -------- |
+| PATRICIA JACKSON  | 99722    |
+| TERESA BARRETT    | 188328.1 |
+| ANNA BROWN        | 102571.2 |
+| DOUGLAS MCEACHERN | 194566   |
+| JOHN LOFTUS       | 188341.6 |
+
