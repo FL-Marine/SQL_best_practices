@@ -192,3 +192,17 @@ WHERE jobtitle LIKE '%CAPTAIN%'
 | DOUGLAS MCEACHERN | 194566   |
 | JOHN LOFTUS       | 188341.6 |
 
+/* Find libraries who haven't provided the email address in circulation year 2016 but their notice preference definition is set to email.
+Output the library code.*/
+SELECT DISTINCT     
+    home_library_code
+FROM library_usage
+WHERE notice_preference_definition = 'email' AND 
+ circulation_active_year = 2016 AND
+ provided_email_address = 0;
+| home_library_code |
+| ----------------- |
+| E9                |
+| P7                |
+| R3                |
+| X                 |
