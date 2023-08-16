@@ -206,3 +206,19 @@ WHERE notice_preference_definition = 'email' AND
 | P7                |
 | R3                |
 | X                 |
+
+/*Compare each employee's salary with the average salary of the corresponding department.
+Output the department, first name, and salary of employees along with the average salary of that department.*/
+SELECT
+    department,
+    first_name,
+    salary,
+    AVG(CAST(salary as float))
+    OVER (PARTITION BY department) AS dept_avg_salary
+FROM employee;
+| department | first_name | salary | dept_avg_salary |
+| ---------- | ---------- | ------ | --------------- |
+| Audit      | Shandler   | 1100   | 950             |
+| Audit      | Jason      | 1000   | 950             |
+| Audit      | Celine     | 1000   | 950             |
+| Audit      | Michale    | 700    | 950             |
