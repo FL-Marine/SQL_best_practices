@@ -222,3 +222,25 @@ FROM employee;
 | Audit      | Jason      | 1000   | 950             |
 | Audit      | Celine     | 1000   | 950             |
 | Audit      | Michale    | 700    | 950             |
+
+/*Find order details made by Jill and Eva.
+Consider the Jill and Eva as first names of customers.
+Output the order date, details and cost along with the first name.
+Order records based on the customer id in ascending order.
+-- Need 4 columns, 3 from orders table & 1 from customers
+-- Need to JOIN on id column */
+SELECT
+    o.order_date,
+    o.order_details,
+    o.total_order_cost,
+    c.first_name
+FROM orders AS o
+JOIN customers AS c
+    ON o.cust_id = c.id
+WHERE c.first_name IN ('Jill', 'Eva')
+ORDER BY c.id ASC;
+| order_date | order_details | total_order_cost | first_name |
+| ---------- | ------------- | ---------------- | ---------- |
+| 4/19/2019  | Suit          | 150              | Jill       |
+| 2/1/2019   | Coat          | 25               | Jill       |
+| 3/10/2019  | Shoes         | 80               | Jill       |
