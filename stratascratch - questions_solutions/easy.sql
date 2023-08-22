@@ -244,3 +244,23 @@ ORDER BY c.id ASC;
 | 4/19/2019  | Suit          | 150              | Jill       |
 | 2/1/2019   | Coat          | 25               | Jill       |
 | 3/10/2019  | Shoes         | 80               | Jill       |
+
+/*Find the details of each customer regardless of whether the customer made an order. 
+Output the customer's first name, last name, and the city along with the order details.
+You may have duplicate rows in your results due to a customer ordering several of the same items.
+Sort records based on the customer's first name and the order details in ascending order.*/
+SELECT 
+    c.first_name,
+    c.last_name,
+    c.city,
+    o.order_details
+FROM customers AS c 
+LEFT JOIN orders AS o 
+    ON c.id = o.cust_id;
+-- Need to watch when joining on ID fields its not always ID to ID 
+| first_name | last_name | city          | order_details |
+| ---------- | --------- | ------------- | ------------- |
+| John       | Joseph    | San Francisco |               |
+| Jill       | Michael   | Austin        | Coat          |
+| Jill       | Michael   | Austin        | Shoes         |
+| Jill       | Michael   | Austin        | Suit          |
