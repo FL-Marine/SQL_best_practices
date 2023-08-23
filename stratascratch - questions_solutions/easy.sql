@@ -264,3 +264,19 @@ LEFT JOIN orders AS o
 | Jill       | Michael   | Austin        | Coat          |
 | Jill       | Michael   | Austin        | Shoes         |
 | Jill       | Michael   | Austin        | Suit          |
+
+/*Find the number of workers by department who joined in or after April.
+Output the department name along with the corresponding number of workers.
+Sort records based on the number of workers in descending order.*/
+SELECT 
+    department,
+    COUNT(worker_id) AS num_workers
+FROM worker
+WHERE joining_date >= '2014-04-01'
+GROUP BY department
+ORDER BY num_workers DESC
+| department | num_workers |
+| ---------- | ----------- |
+| Admin      | 4           |
+| HR         | 1           |
+| Account    | 1           |
