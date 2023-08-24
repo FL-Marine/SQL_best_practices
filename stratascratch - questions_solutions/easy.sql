@@ -280,3 +280,11 @@ ORDER BY num_workers DESC
 | Admin      | 4           |
 | HR         | 1           |
 | Account    | 1           |
+
+--Find the number of employees working in the Admin department that joined in April or later.
+SELECT COUNT(*) AS n_admin
+FROM worker
+WHERE department = 'Admin' AND joining_date >='2014-04-01';
+| n_admin |
+| ------- |
+| 4       |
