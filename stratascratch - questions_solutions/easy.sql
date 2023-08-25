@@ -288,3 +288,15 @@ WHERE department = 'Admin' AND joining_date >='2014-04-01';
 | n_admin |
 | ------- |
 | 4       |
+
+--Find the activity date and the pe_description of facilities with the name 'STREET CHURROS' and with a score of less than 95 points.
+SELECT 
+    activity_date,
+    pe_description
+FROM los_angeles_restaurant_health_inspections
+WHERE facility_name =  'STREET CHURROS' AND score <= 95;
+| activity_date | pe_description                   |
+| ------------- | -------------------------------- |
+| 12/29/2017    | RESTAURANT (0-30) SEATS LOW RISK |
+| 12/1/2016     | RESTAURANT (0-30) SEATS LOW RISK |
+| 6/16/2016     | RESTAURANT (0-30) SEATS LOW RISK |
