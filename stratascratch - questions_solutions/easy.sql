@@ -1,3 +1,4 @@
+
 /*Salaries Differences 
 Write a query that calculates the difference between the highest salaries found in the marketing and engineering departments. Output just the absolute difference in salaries.
 Hints
@@ -300,3 +301,14 @@ WHERE facility_name =  'STREET CHURROS' AND score <= 95;
 | 12/29/2017    | RESTAURANT (0-30) SEATS LOW RISK |
 | 12/1/2016     | RESTAURANT (0-30) SEATS LOW RISK |
 | 6/16/2016     | RESTAURANT (0-30) SEATS LOW RISK |
+
+-- Find the most profitable company from the financial sector. Output the result along with the continent.
+SELECT company, continent
+FROM forbes_global_2010_2014
+WHERE sector = 'Financials'
+    AND profits = (SELECT MAX(profits)
+                    FROM forbes_global_2010_2014
+                    WHERE sector = 'Financials')
+| company | continent |
+| ------- | --------- |
+| ICBC    | Asia      |
