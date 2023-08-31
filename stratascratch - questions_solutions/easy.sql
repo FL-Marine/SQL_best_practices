@@ -312,3 +312,22 @@ WHERE sector = 'Financials'
 | company | continent |
 | ------- | --------- |
 | ICBC    | Asia      |
+
+/*Count the number of user events performed by MacBookPro users.
+Output the result along with the event name.
+Sort the result based on the event count in the descending order.*/
+select 
+    event_name,
+    count(event_name) AS event_count
+from playbook_events
+where device = 'macbook pro'
+group by event_name
+order by event_count desc
+| event_name          | event_count |
+| ------------------- | ----------- |
+| home_page           | 8           |
+| like_message        | 3           |
+| login               | 3           |
+| search_autocomplete | 3           |
+| view_inbox          | 3           |
+| send_message        | 1           |
