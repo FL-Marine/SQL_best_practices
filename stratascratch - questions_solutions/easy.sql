@@ -331,3 +331,16 @@ order by event_count desc
 | search_autocomplete | 3           |
 | view_inbox          | 3           |
 | send_message        | 1           |
+
+/*Find the average number of bathrooms and bedrooms for each city’s property types. Output the result along with the city name and the property type.*/
+SELECT city, 
+property_type,
+AVG(CAST(bathrooms AS FLOAT)),
+AVG(CAST(bedrooms AS FLOAT))
+FROM airbnb_search_details
+GROUP BY city, property_type;
+| city    | property_type |       |
+| ------- | ------------- | ----- |
+| Boston  | Apartment     | 1     | 1 |
+| Chicago | Apartment     | 2     | 2 |
+| LA      | Apartment     | 1.143 | 1.143 |
