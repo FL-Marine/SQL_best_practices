@@ -375,3 +375,17 @@ GROUP BY  FORMAT(CAST(shipment_date AS datetime), 'yyyy-MM')
 | 3         | 2021-08 |
 | 6         | 2021-09 |
 
+/* Write a query that returns the number of unique users per client per month */
+SELECT 
+    client_id,
+    MONTH(time_id) AS month,
+    COUNT(DISTINCT(user_id)) AS Counts
+FROM fact_events
+GROUP BY 
+    client_id,
+    MONTH(time_id)
+| client_id | month | Counts |
+| --------- | ----- | ------ |
+| desktop   | 2     | 13     |
+| mobile    | 2     | 9      |
+| desktop   | 3     | 16     |
